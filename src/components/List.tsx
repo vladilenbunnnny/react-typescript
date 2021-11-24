@@ -1,20 +1,12 @@
 import React from "react";
-
-interface IProps {
-  people: {
-    name: string;
-    age: number;
-    url: string;
-    note?: string;
-  }[];
-}
+import { IState as IProps } from "../App";
 
 const List: React.FC<IProps> = ({ people }) => {
   //TS Function to render element
   const renderList = (): JSX.Element[] => {
     return people.map(person => {
       return (
-        <li className="List">
+        <li key={person.id} className="List">
           <div className="List-header">
             <img className="List-img" src={person.url} alt="Person's image" />
             <h2>{person.name}</h2>
